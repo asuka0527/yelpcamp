@@ -67,9 +67,15 @@
   </div>
 
   <div class="col-6">
-    <div id="map"></div>
+    <div id="map" class="mb-3"></div>
 
-    <% if (currentUser) { %>
+    <% if (!currentUser) { %>
+    <h2 class="mb-3">Reviews</h2>
+    <% } %> <% if (campground.reviews < 1) { %>
+    <p>
+      No reviews yet. <span><a href="/login">Login to Leave a review </a></span>
+    </p>
+    <% } %> <% if (currentUser) { %>
     <h2>Leave a Review</h2>
     <form
       action="/campgrounds/<%= campground._id %>/reviews"

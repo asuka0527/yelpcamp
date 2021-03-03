@@ -9,6 +9,7 @@ const methodOverride = require("method-override");
 const ExpressError = require("./utils/ExpressError");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
+
 // requires the model with Passport-Local Mongoose plugged in
 const User = require("./models/user");
 //ROUTES
@@ -24,6 +25,8 @@ const helmet = require("helmet");
 const MongoDBStore = require("connect-mongo")(session);
 
 const dbUrl = process.env.DB_URL || "mongodb://localhost:27017/yelp-camp";
+
+const dbLocal = "mongodb://localhost:27017/yelp-camp";
 
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
