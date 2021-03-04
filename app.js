@@ -20,6 +20,7 @@ const reviewsRoutes = require("./routes/reviews");
 //SECURITY
 const mongoSanitize = require("express-mongo-sanitize");
 const helmet = require("helmet");
+const { isLoggedIn } = require("./middleware");
 
 // using MongoStore to store session insteat of default MemoryStore
 const MongoDBStore = require("connect-mongo")(session);

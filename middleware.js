@@ -7,9 +7,9 @@ const ExpressError = require("./utils/ExpressError");
 module.exports.isLoggedIn = (req, res, next) => {
   // isAuthenticated() -method from passport that checks whether there is a logged in user
   // store the url they are requesting!
-  req.session.returnTo = req.originalUrl;
-  console.log(req.path, req.originalUrl);
+  // console.log(req.path, req.originalUrl);
   if (!req.isAuthenticated()) {
+    req.session.returnTo = req.originalUrl;
     req.flash("error", "You must be signed in");
     return res.redirect("/login");
   }

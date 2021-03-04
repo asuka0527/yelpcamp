@@ -73,7 +73,7 @@
     <h2 class="mb-3">Reviews</h2>
     <% } %> <% if (campground.reviews < 1) { %>
     <p>
-      No reviews yet. <span><a href="/login">Login to Leave a review </a></span>
+      No reviews yet. <span><a href="/login">Login to leave a review </a></span>
     </p>
     <% } %> <% if (currentUser) { %>
     <h2>Leave a Review</h2>
@@ -150,7 +150,12 @@
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><%= review.author.username %></h5>
-        <p class="starability-result" data-rating="<%= review.rating %>"></p>
+
+        <p
+          class="starability-result mb-1"
+          data-rating="<%= review.rating %>"
+        ></p>
+        <p class="text-muted"><%= review.stringDate %></p>
 
         <p class="card-text">Review: <%= review.body %></p>
 

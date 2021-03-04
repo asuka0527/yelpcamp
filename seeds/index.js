@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const cities = require("./cities");
 const { places, descriptors } = require("./seedHelpers");
 const Campground = require("../models/campground");
-
+// "mongodb+srv://asuka1234:asuka1234@asuka.9edjd.mongodb.net/yelpCamp?retryWrites=true&w=majority"
+//"mongodb://localhost:27017/yelp-camp"
 mongoose.connect(
   "mongodb+srv://asuka1234:asuka1234@asuka.9edjd.mongodb.net/yelpCamp?retryWrites=true&w=majority",
   {
@@ -38,6 +39,7 @@ const seedDB = async () => {
         ],
         type: "Point",
       },
+      rating: 0,
       title: `${sample(descriptors)} ${sample(places)}`,
       images: [
         {

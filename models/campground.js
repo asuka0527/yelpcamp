@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const { func } = require("joi");
 const Review = require("./review");
 const Schema = mongoose.Schema;
 
@@ -38,9 +37,15 @@ const CampgroundSchema = new Schema(
     price: Number,
     description: String,
     location: String,
+    rating: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
     author: {
       type: Schema.Types.ObjectId,
       ref: "User",
+      unique: true,
     },
     reviews: [
       {
@@ -48,6 +53,11 @@ const CampgroundSchema = new Schema(
         ref: "Review",
       },
     ],
+    numReviews: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
   opts
 );
